@@ -1,0 +1,17 @@
+venv/
+.env
+__pycache__/
+*.pyc
+node_modules/
+.idea/
+.vscode/
+ generate_Refersh.py
+.env
+config/.env
+generate_Refersh.py
+audit_log.csv
+processed_ids.txt
+__pycache__/
+*.pyc
+.venv/
+venv/

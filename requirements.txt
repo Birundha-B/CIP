@@ -1,0 +1,10 @@
+pika
+python-dotenv
+cryptography
+scikit-learn
+pandas
+numpy
+joblib
+imaplib2
+oauthlib
+requests

@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: cip_rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: always
+
+  producer:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: cip_producer
+    command: python producer/producer_main.py
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    restart: always
+
+  consumer:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: cip_consumer
+    command: python consumer/consumer_main.py
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    restart: always
